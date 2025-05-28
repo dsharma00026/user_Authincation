@@ -1,0 +1,139 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+}
+
+/* Container */
+.container {
+  background-color: #ffffff;
+  padding: 2rem;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Headings */
+.container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  animation: slideDown 0.5s ease-out;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Links */
+a {
+  display: block;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+/* Table (Dashboard) */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  animation: fadeIn 0.5s ease-in;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f1f1f1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  input, button {
+    font-size: 14px;
+  }
+
+  table, th, td {
+    font-size: 12px;
+  }
+}
