@@ -1,14 +1,15 @@
 <?php
-include 'db.php';
-$name = $_POST['name'];
-$email = $_POST['email'];
-$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+include("../db_config.php");
 
-$sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
-$stmt = $pdo->prepare($sql);
+$name = $_REQUEST['name'];
+$email = $_REQUEST['email'];
+//$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+$password=$_REQUEST['password'];
+$sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email','$password')";
+$stmt = $con->prepare($sql);
 try {
-    $stmt->execute([$name, $email, $password]);
-    header("Location: ../pages/index.html");
+    $stmt->execute();
+    header("Location: ../html/index.html");
 } catch (PDOException $e) {
     echo "Signup error: " . $e->getMessage();
 }

@@ -1,18 +1,16 @@
 <?php
-session_start();
-include 'db.php';
+include("../db_config.php");
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = $_REQUEST['email'];
+$password = $_REQUEST['password'];
 
-$sql = "SELECT * FROM users WHERE email = ?";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$email]);
+$sql = "SELECT * FROM users WHERE email = '$email' ";
+$stmt=$con->prepare($sql);
+$stmt->execute();
 $user = $stmt->fetch();
 
-if ($user && password_verify($password, $user['password'])) {
-  $_SESSION['user_id'] = $user['id'];
-  header("Location: ../pages/dashboard.php");
+if ($email==$user['email'] && $password==$user['password']) {
+  header("Location: ../php/dashboard.php");
 } else {
   echo "Invalid email or password.";
 }

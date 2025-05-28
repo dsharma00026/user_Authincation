@@ -1,11 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-  header("Location: index.html");
-  exit();
-}
-include '../php/db.php';
-$stmt = $pdo->query("SELECT * FROM users");
+
+include ("../db_config.php");
+$stmt = $con->query("SELECT * FROM users");
 $users = $stmt->fetchAll();
 ?>
 
@@ -14,7 +11,7 @@ $users = $stmt->fetchAll();
 <head>
   <meta charset="UTF-8">
   <title>Dashboard</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
   <div class="container">
