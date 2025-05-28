@@ -30,7 +30,6 @@ $users = $stmt->fetchAll();
         </tr>
       <?php endforeach; ?>
     </table>
-    <a href="../php/logout.php">Logout</a>
   </div>
 </body>
 </html>
