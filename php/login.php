@@ -1,5 +1,4 @@
 <?php
-include("../css/header.php");
 include("../db_config.php");
 
 

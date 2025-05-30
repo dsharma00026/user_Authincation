@@ -1,11 +1,15 @@
 <?php
 include("../db_config.php");
 
-$name = $_REQUEST['name'];
+$firstname = $_REQUEST['firstname'];
+$lastname=$_REQUEST['lastname'];
 $email = $_REQUEST['email'];
-//$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-$password=$_REQUEST['password'];
-$sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email','$password')";
+$password = password_hash($_REQUEST['password'], PASSWORD_BCRYPT);
+$number=$_REQUEST['number'];
+$city=$_REQUEST['city'];
+$age=$_REQUEST['age'];
+
+$sql = "INSERT INTO users (name,lastname, email, password,phone_number,age,city) VALUES ('$firstname','$lastname', '$email','$password','$number','$age','$city')";
 $stmt = $con->prepare($sql);
 try {
     $stmt->execute();
